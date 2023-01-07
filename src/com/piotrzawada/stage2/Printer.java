@@ -1,4 +1,4 @@
-package com.piotrzawada.step2;
+package com.piotrzawada.stage2;
 
 import java.util.List;
 

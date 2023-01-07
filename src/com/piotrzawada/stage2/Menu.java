@@ -1,4 +1,4 @@
-package com.piotrzawada.step2;
+package com.piotrzawada.stage2;
 
 import java.sql.SQLException;
 import java.util.Scanner;

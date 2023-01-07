@@ -1,4 +1,4 @@
-package com.piotrzawada.step2;
+package com.piotrzawada.stage2;
 
 public class Company {
     private int id;

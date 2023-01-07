@@ -1,4 +1,4 @@
-package com.piotrzawada.step1;
+package com.piotrzawada.stage1;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

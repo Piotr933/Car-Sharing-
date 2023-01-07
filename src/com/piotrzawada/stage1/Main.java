@@ -1,4 +1,4 @@
-package com.piotrzawada.step1;
+package com.piotrzawada.stage1;
 
 public class Main {
 
