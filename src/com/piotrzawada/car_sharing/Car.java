@@ -1,6 +1,6 @@
-package com.piotrzawada.stage3;
+package com.piotrzawada.car_sharing;
 
-public class Car {
+public final class Car {
     private int ID;
     private String NAME;
     private int COMPANY_ID;

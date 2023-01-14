@@ -1,28 +1,11 @@
-package com.piotrzawada.stage3;
+package com.piotrzawada.car_sharing;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CompanyDaoImpl implements CompanyDao {
-
-    @Override
-    public void createTable() {
-        Connection connection = DB_Manager.getConnection();
-        Statement statement;
-        String table = "CREATE TABLE COMPANY" +
-                "(id INT PRIMARY KEY AUTO_INCREMENT," +
-                "name VARCHAR(255) NOT NULL UNIQUE)";
-        try {
-            statement = connection.createStatement();
-            statement.execute("DROP TABLE IF EXISTS COMPANY CASCADE");
-            statement.execute(table);
-            statement.close();
-        } catch (SQLException ex) {
-            throw new RuntimeException(ex);
-        }
-    }
+public final class CompanyDaoImpl implements CompanyDao {
 
     @Override
     public List<Company> companies() throws SQLException {
@@ -39,7 +22,6 @@ public class CompanyDaoImpl implements CompanyDao {
         connection.close();
         return companies;
     }
-
     @Override
     public void insert() throws SQLException {
         Connection connection = DB_Manager.getConnection();
@@ -52,5 +34,18 @@ public class CompanyDaoImpl implements CompanyDao {
         statement.executeUpdate(sql);
         statement.close();
         connection.close();
+    }
+
+    public Company getCompanyById(int id) throws SQLException {
+        Connection connection = DB_Manager.getConnection();
+        Statement statement = connection.createStatement();
+        String sql = "SELECT * FROM COMPANY WHERE id = " +id;
+        ResultSet rs = statement.executeQuery(sql);
+        Company company = null;
+        while (rs.next()) {
+            company = new Company(rs.getInt(1), rs.getString(2));
+        }
+
+        return company;
     }
 }
